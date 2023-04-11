@@ -4,9 +4,18 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 int main() {
+    int x = 1;
+    printf("%d\n", sizeof(x));
+    printf("hello\n");
+    srand(time(NULL));
+    int num = rand();
+    printf("%d\n", num);
 
-    printf("hello");
+
+
     return 0;
 }
