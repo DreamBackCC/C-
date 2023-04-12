@@ -1,6 +1,16 @@
-cmake_minimum_required(VERSION 3.22)
-project(C- C)
+cmake_minimum_required(VERSION 3.23)
 
-set(CMAKE_C_STANDARD 99)
+get_filename_component(ProjectId ${CMAKE_CURRENT_SOURCE_DIR} NAME)
+string(REPLACE " " "_" ProjectId ${ProjectId})
+project(${ProjectId} C)
 
-add_executable(C- main.c main.c)
+set(CMAKE_C_STANDARD 90)
+
+include_directories("include")
+
+file(GLOB files "${CMAKE_CURRENT_SOURCE_DIR}/*.c")
+foreach(file ${files})
+    get_filename_component(name ${file} NAME)
+    add_executable(${name} ${file} src/factorial.c)
+    target_compile_definitions(${name} PUBLIC DEBUG)
+endforeach()
