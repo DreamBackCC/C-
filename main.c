@@ -4,8 +4,21 @@
 
 #include <stdio.h>
 
+// 条件编译
+void PrintfMessage(char *message){
+#ifdef DEBUG
+    puts(message);
+#endif
+
+}
+
+//
 int main() {
-    printf("helloword");
+
+    PrintfMessage("main start");
+    printf("hello\n");
+    PrintfMessage("main end");
+
 
     return 0;
 }
