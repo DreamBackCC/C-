@@ -22,7 +22,8 @@ void LocalStaticVar(void) {
 void PassByMemory(int parameter) {
     printf("%d\n", parameter);
 }
-
+// 通过寄存器去传递参数的话不需要通过内存, 也就是不需要在内存当中开辟内存空间, 所以寄存器要比内存要快
+// 一般情况下不需要自己去声明, 编译器会根据实际情况来进行最优选择
 void PassByRegister(register int parameter) {
     printf("%d\n", parameter);
 }
@@ -36,6 +37,7 @@ int main() {
     // 自动变量
     // auto是变量的类型
     // int是变量的数据类型
+    // 尽量不要写auto因为在c++11当中auto变成了关键字
     auto int value = 0;
     { // 这个就是块作用域, 变量出了这个范围就不能使用了
 
